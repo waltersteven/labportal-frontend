@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Añadir usuario</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">               
+        <!-- Bootstrap core CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+        <!-- project CSS  -->
+        <link rel="stylesheet" href="styles/estilos.css">        
+        
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">                
+        <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.orange-blue.min.css" />     
+        <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>    
+        
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>          
+    </head>
+
+    <body style="background-image: url(images/createUser-background.jpg)">
+
+
+        <div class="demo-ribbon-create">Crear usuario</div>
+        <div class="container">
+            <div class="row">               
+                <div class="col-md-12" style="margin-top: 60px;">
+
+                    <div class="center bordes" style="width: 500px; background-color: #ffffff;">        
+
+                        <div class="form-group" id="parentCode">
+                            <div><label>Código:</label></div>
+                            <input type="text" class="form-control" id="code" value="">                            
+                        </div>                    
+
+                        <div class="form-group" id="parentDescription">
+                            <div><label>Descripción:</label></div>
+                            <input type="text" class="form-control" id="description" value=""> 
+                        </div>              
+
+                        <div class="form-group" id="parentEnvironment">
+                            <div><label>Ambiente:</label></div>
+                            <select class="form-control environment" id="idEnviro" name="ambiente">
+                                <option value="">Seleccionar</option>
+                                <option value="1">Lab</option>
+                                <option value="2">Producción</option>
+                                <option value="3">Test</option>
+                            </select> 
+                        </div>
+
+                        <div class="form-group">
+                            <div><label>Padre:</label></div>
+                            <div class="input-group" style="margin-bottom: 10px">
+                                <span class="input-group-btn" style="padding-right: 20px">
+                                    <select class="form-control" id="idPadre" name="padre">
+                                        <option value="">Seleccionar</option>                                   
+                                    </select>
+                                </span>
+
+                                <span class="input-group-btn">
+                                    <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored mdl-button--mini-fab" id="addInherit">
+                                        <i class="material-icons">add</i>
+                                    </button>
+                                </span>
+                            </div>                        
+                            
+                            <table class="mdl-data-table mdl-js-data-table" id="listInherit">                               
+                                <tbody id="sortableInherit" class="ui-sortable">
+                                </tbody>
+                            </table>                           
+                        </div>
+
+                        <div class="form-group">
+                            <div><label>XML Base:</label></div>
+
+                            <div class="addborde">
+                                <div>
+                                    <label style="padding-right: 5px; padding-left: 10px;"> Agregar servicio</label>
+                                    <select  id="idService" name="service">
+                                        <option value="">Seleccionar</option>                                
+                                        <option value="1">Todos</option>                                
+                                    </select>
+                                </div>
+
+                                <div style="display: inline-block; margin-top: 12px;">
+                                    <label style="padding-right: 5px; padding-left: 10px;">Agregar archivo</label>
+                                    <select  id="idArchive" name="archive">
+                                        <option value="">Seleccionar</option>                            
+                                    </select>
+                                    <div id="extraDiv">
+                                        <input type="text" class="form-control" id="anotherArchive" value="">                                
+                                    </div>
+                                </div>
+
+                                <div class="centrar">                                
+                                    <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" id="addXMLBase">
+                                        Agregar
+                                    </button>
+                                </div>
+                            </div>
+
+                            <table class="mdl-data-table mdl-js-data-table" id="xmlTable">                                
+                                <tbody id="sortableXML" class="ui-sortable">
+                                </tbody>
+                            </table>
+                        </div>   
+
+                    </div>
+
+                    <div class="center" style="width: 500px;">
+                        <a href="index.html"><button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" style="float: left;">
+                                Regresar
+                            </button></a>
+                        <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" id="submit" style="float: right;">
+                            Crear usuario   
+                        </button>                
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="alert alert-success" role="alert" id="createUserAlert"></div>
+        <div class="alert alert-danger" role="alert" id="existUserAlert"></div>
+        
+        <!-- SCRIPTS -->     
+        
+        <!--<script src="js/jquery-3.1.1.min.js" type="text/javascript"></script>-->
+        <script src="js/addUser.js" type="text/javascript"></script>
+    </body>
+</html>
